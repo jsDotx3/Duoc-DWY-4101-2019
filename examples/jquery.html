@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+$('a').click(function() {
+  alert("Click en A");
+	
+})
+
+/**
+$("a").mouseenter(function(){
+  alert("Mouse enter en a");
+});
+*/
+
+
+$("a").on("click", function(){
+  alert("Click en A con ON");
+});
+
+$("a").on({
+  mouseenter: function(){
+    $(this).css("background-color", "black");
+  }, 
+  mouseleave: function(){
+    $(this).css("background-color", "blue");
+  }, 
+  click: function(){
+    $(this).css("background-color", "yellow");
+  } 
+});
+
+//Review events: https://www.w3schools.com/jquery/jquery_events.asp
+
+	});
+</script>
+</head>
+<body>
+
+<a href="#">Hola</a>
+</body>
+</html>

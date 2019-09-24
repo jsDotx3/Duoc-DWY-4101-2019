@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+
+
+var lengthNombre = $('#txtNombre').val().trim().length;
+
+if(lengthNombre === 0)
+alert('El campo de nombre está vacio');
+
+	})
+</script>
+<body>
+
+
+<form>
+	<input type="text" 
+	id="txtNombre"
+	name="txtNombre" required minlength="4" maxlength="10">
+<input type="number" name="txtEdad" min="0" max="10" step="0.5" value="5">
+
+<input type="checkbox" name="" value="Hombre">
+<input type="checkbox" name="" value="Mujer">
+
+
+<input type="radio" name="gender" value="H"> <label>Hombre</label>
+<input type="radio" name="gender" value="M"> <label> Mujer</label>
+<textarea rows="4" cols="50"></textarea>
+
+<input type="submit" name="enviar" value="Enviar">
+
+	</form>
+</body>
+</html>

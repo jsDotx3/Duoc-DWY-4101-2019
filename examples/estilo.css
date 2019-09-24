@@ -1,0 +1,11 @@
+ 	.btn {
+color:black;
+	 	}
+
+	 	.btn-primary {
+	 			color:white !important;
+	 	}
+
+	 	.btn.btn-primary {
+	 		color:white;
+	 	}
