@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <link rel=”manifest” href=”manifest.json”>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="text/javascript">
+ 	
+  	$(document).ready(function() {
+
+		$.getJSON( "http://localhost:8000/users?format=json", function(response) {
+let {results} = response;
+
+let htmlAppend ='<div class="card" style="width: 18rem;">'+
+  '<div class="card-body">'+
+  '<h5 class="card-title">{username}</h5>'+
+    '<h6 class="card-subtitle mb-2 text-muted"><a href="malito:{email}">{email}</a></h6>'+
+    '<p class="card-text"></p>'+
+    '<a href="#" class="card-link"><a href="{link} _blank" >Click</a></a>'+
+ '</div></div>';
+let contenedorUl = $('#contenedor');
+results.map(data => {
+  let appendHtmlNew = htmlAppend
+  .replace('{username}',data.username)
+  .replace(/{email}/gi,data.email)
+  .replace(/{link}/gi,data.url)
+  contenedorUl.append(appendHtmlNew);
+})
+})
+  .fail(function() {
+    alert('Error!');
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+  	});
+  </script>
+</head>
+<body>
+<ul id="contenedor"></ul>
+</body>
+</html>
